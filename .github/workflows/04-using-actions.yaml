@@ -10,14 +10,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setpup Node
-        uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 26
+
       - name: Install Dependencies
+        working-directory: .github/04-using-actions/react-app
         run: npm install
-
-
-
-
-        
