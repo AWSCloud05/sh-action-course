@@ -6,9 +6,8 @@ on:
   workflow_dispatch:
     inputs:
       debug:
-        description: 'Debug mode'
-        required: true
-        default: 'false'
+        type: boolean
+        default: false
 
 jobs:
   echo-date:
