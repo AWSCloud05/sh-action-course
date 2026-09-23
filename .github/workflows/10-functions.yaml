@@ -1,4 +1,4 @@
-name: 09 - Using Functions
+name: 10- Using Functions
 
 on:
 
@@ -8,7 +8,12 @@ on:
 jobs:
     echo1:
         runs-on: ubuntu-latest
+
         steps:
+            - name: Sleep for 20 seconds
+              run: sleep 20
+
+       
             - name: Failing Step
               run: exit 1
              
@@ -17,13 +22,16 @@ jobs:
               if: ${{ success() }}
               run: echo " I will print if the previous step was successful"
 
+
             - name: I will execute 
               if: ${{ failure() }}
               run: echo " I will print if the previous step failed"
 
+
             - name: I will execute 
               if: ${{ !cancelled() }}
               run: echo " I will always print, except when the workflow is cancelled."
+              
 
             - name: I will execute when cancelled
               if: ${{ cancelled() }}
